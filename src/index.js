@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
+import Home from './Home';
+import NavbarComp from './NavbarComp';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import HomePage from './Covid/HomePage';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <NavbarComp />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie" element={<App />} />
+        <Route path="/covid19" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
